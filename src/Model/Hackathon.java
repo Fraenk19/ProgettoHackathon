@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Date;
 
-public class Hackaton {
+public class Hackathon {
     //attributi
     private String titolo;
     private String sede;
@@ -11,7 +11,7 @@ public class Hackaton {
     private int numeroIscritti;
 
     //costruttore
-    public Hackaton(String titolo, String sede, Date dataInizio, Date dataFine, int numeroIscritti) {
+    public Hackathon(String titolo, String sede, Date dataInizio, Date dataFine, int numeroIscritti) {
         this.titolo = titolo;
         this.sede = sede;
         this.dataInizio = dataInizio;

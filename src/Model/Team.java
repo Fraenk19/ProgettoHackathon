@@ -8,6 +8,7 @@ public class Team {
     private String nome;
     private ArrayList<Utente> membri;
     private int dimensioneMassima;
+    private Piattaforma piattaforma;
 
     //costruttore
     public Team(String nome, int dimensioneMassima) {
@@ -21,7 +22,9 @@ public class Team {
 
     //metodi
     public void aggiungiMembro(Utente utente) {
-        membri.add(utente);
+        if(this.membri.size() + 1 > dimensioneMassima) {
+            throw new IllegalArgumentException("Troppi Utenti nel team");
+        } else membri.add(utente);
     };
 
     public void stampaMembri() {
@@ -31,15 +34,22 @@ public class Team {
         };
     }
 
+    public int getPunti() {
+       return  0;
+        // piattaforma.getPunti(this.nome);
+    }
+
     //getter
     public String getNome() {
         return nome;
     }
+
     public ArrayList<Utente> getMembri() {
         return membri;
     }
+
     public int getDimensioneMassima() {
-        return dimensioneMassima;
+        return 5;
     }
 
     //setter
