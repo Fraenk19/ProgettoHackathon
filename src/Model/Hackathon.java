@@ -53,8 +53,5 @@ public class Hackathon {
         this.numeroIscritti = numeroIscritti;
     }
 
-    //toString
-    public String toString() {
-        return ("Hackaton: " + titolo + "\n Sede: " + sede);
-    }
+
 }

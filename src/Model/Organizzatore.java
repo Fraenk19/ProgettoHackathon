@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Date;
+
 public class Organizzatore extends Utente{
 
     //costruttore
@@ -8,6 +10,7 @@ public class Organizzatore extends Utente{
     }
 
     //metodi da implementare
-    public void selezionaGiudice() {};
-    public void aperturaRegistrazioni() {}
+    public void selezionaGiudice(Utente utente) {
+    };
+    public void aperturaRegistrazioni(Date dataInizio, Date dataFine) {}
 }

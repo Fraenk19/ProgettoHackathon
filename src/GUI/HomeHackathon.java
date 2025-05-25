@@ -33,7 +33,7 @@ public class HomeHackathon {
         frame.setContentPane(new HomeHackathon(frame).panel1);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
-        frame.setSize(800, 600);
+        frame.setSize(900, 600);
         frame.setVisible(true);
     }
 
