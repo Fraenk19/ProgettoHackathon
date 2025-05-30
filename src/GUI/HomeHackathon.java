@@ -1,6 +1,6 @@
 package GUI;
 
-import Controller.ControllerHackaton;
+import Controller.ControllerHackathon;
 import Model.Piattaforma;
 
 import javax.swing.*;
@@ -22,7 +22,7 @@ public class HomeHackathon {
     private JLabel nomeLabel;
 
 
-    private final ControllerHackaton controller;
+    private final ControllerHackathon controller;
     private final Piattaforma piattaforma;
 
 
@@ -40,7 +40,7 @@ public class HomeHackathon {
     public HomeHackathon(JFrame frame) {
 
         piattaforma = new Piattaforma("Hackaton");
-        controller = new ControllerHackaton(piattaforma);
+        controller = new ControllerHackathon();
 
         JFrame frameHome = new JFrame("Home Hackaton");
 

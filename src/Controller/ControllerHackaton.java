@@ -4,7 +4,7 @@ import Model.*;
 
 import java.util.ArrayList;
 
-public class ControllerHackaton {
+public class ControllerHackathon {
 
     public ArrayList<Team> listaSquadre;
     private final Piattaforma piattaforma;
