@@ -10,46 +10,44 @@ import java.awt.event.ActionListener;
 public class HomeHackathon {
 
     private JPanel panel1;
-
+    private static JFrame frame;
     private JButton mostraTeamInGaraButton;
-
     private JButton loginButton;
-
     private JButton registrarsiButton;
     private JTextField textField1;
     private JPasswordField passwordField1;
     private JLabel pswLabel;
     private JLabel nomeLabel;
-
-
     private final ControllerHackathon controller;
-    private final Piattaforma piattaforma;
 
 
 
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("Home Hackaton");
-        frame.setContentPane(new HomeHackathon(frame).panel1);
+        frame = new JFrame("Home Hackaton");
+        frame.setContentPane(new HomeHackathon().panel1);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setSize(900, 600);
         frame.setVisible(true);
     }
 
-    public HomeHackathon(JFrame frame) {
+    public HomeHackathon() {
 
-        piattaforma = new Piattaforma("Hackaton");
         controller = new ControllerHackathon();
-
-        JFrame frameHome = new JFrame("Home Hackaton");
 
         registrarsiButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SchermataRegistrazione reg = new SchermataRegistrazione(frame);
-                reg.frameR.setVisible(true);
+                SchermataRegistrazione registrazione = new SchermataRegistrazione(controller, frame);
+                registrazione.frame.setVisible(true);
                 frame.setVisible(false);
+            }
+        });
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.login(textField1.getText(), passwordField1.getText());
             }
         });
     }

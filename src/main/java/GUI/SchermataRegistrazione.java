@@ -1,11 +1,12 @@
 package GUI;
 
-import Controller.ControllerHackaton;
+import Controller.ControllerHackathon;
 import Model.Piattaforma;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class SchermataRegistrazione {
     private JPanel panelRegistrazione;
@@ -14,16 +15,16 @@ public class SchermataRegistrazione {
     private JComboBox ruoloComboBox;
     private JButton confermaButton;
     private JButton tornaIndietroButton;
-    private ControllerHackaton controller;
+    private ControllerHackathon controller;
     private Piattaforma piattaforma;
-    public JFrame frameR;
+    public JFrame frame;
 
-    public SchermataRegistrazione(JFrame frameHome) {
-        frameR = new JFrame("Registrazione");
-        frameR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frameR.setContentPane(panelRegistrazione);
-        frameR.pack();
-        frameR.setVisible(true);
+    public SchermataRegistrazione(ControllerHackathon controller, JFrame frameHome) {
+        frame = new JFrame("Registrazione");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(panelRegistrazione);
+        frame.pack();
+        frame.setVisible(true);
 
 
 
@@ -36,14 +37,18 @@ public class SchermataRegistrazione {
         confermaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.registraUtente(textNome.getText(), textPassword.getText());
+                try {
+                    controller.registraUtenteDB(textNome.getText(), textPassword.getText());
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         tornaIndietroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frameHome.setVisible(true);
-                frameR.dispose();
+                frame.dispose();
             }
         });
     }
